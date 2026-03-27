@@ -1,0 +1,8 @@
+# Bandit configuration
+skips:
+  - B101
+  - B608
+exclude_dirs:
+  - tests
+  - .venv
+  - .env

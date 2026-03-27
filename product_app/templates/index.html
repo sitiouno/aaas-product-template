@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Due Diligence Studio</title>
+    <link rel="stylesheet" href="/static/app.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero-card">
+        <div class="hero-copy">
+          <p class="eyebrow">Local AI Venture Workflow</p>
+          <h1>Due Diligence Studio</h1>
+          <p class="hero-text">
+            Ejecuta una consulta, observa el avance por etapas y recibe el analisis,
+            memo y artefactos finales en una sola vista limpia.
+          </p>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-chip">
+            <span class="meta-label">Motor</span>
+            <strong>Google ADK + Gemini</strong>
+          </div>
+          <div class="meta-chip">
+            <span class="meta-label">Salida</span>
+            <strong>Research, memo, chart, report, snapshot</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="left-column">
+          <article class="panel composer-panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-kicker">Consulta</p>
+                <h2>Lanza un analisis</h2>
+              </div>
+              <span class="status-pill" id="status-pill">Listo</span>
+            </div>
+
+            <form id="analysis-form" class="analysis-form">
+              <label class="field-label" for="prompt-input">Empresa o URL</label>
+              <textarea
+                id="prompt-input"
+                name="prompt"
+                rows="6"
+                placeholder="Analiza https://tu-startup.com como oportunidad seed. Resume hallazgos, riesgos, modelo financiero y recomendacion."
+                required
+              ></textarea>
+
+              <div class="examples" aria-label="Ejemplos rapidos">
+                <button type="button" class="example-chip" data-prompt="Analiza https://cursor.com como oportunidad Series A.">
+                  Cursor
+                </button>
+                <button type="button" class="example-chip" data-prompt="Despliega un MVP para https://replit.com como producto AaaS.">
+                  Replit
+                </button>
+                <button type="button" class="example-chip" data-prompt="Evalua https://v0.dev como inversion potencial.">
+                  v0
+                </button>
+              </div>
+
+              <div class="form-footer">
+                <button id="submit-button" class="primary-button" type="submit">
+                  Ejecutar analisis
+                </button>
+                <p class="form-note">
+                  La app usa tu configuracion local de <code>.env</code> y guarda artefactos
+                  en la carpeta <code>outputs</code>.
+                </p>
+              </div>
+            </form>
+          </article>
+
+          <article class="panel progress-panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-kicker">Proceso</p>
+                <h2>Avance en vivo</h2>
+              </div>
+              <strong class="progress-number" id="progress-number">0%</strong>
+            </div>
+
+            <div class="progress-track" aria-hidden="true">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+            <div class="stage-now">
+              <p class="stage-label">Etapa actual</p>
+              <h3 id="current-stage-title">Esperando una consulta</h3>
+              <p id="current-stage-description">
+                Cuando inicies un analisis veras aqui el paso activo y el estado general.
+              </p>
+            </div>
+
+            <div class="stage-list" id="stage-list" aria-live="polite"></div>
+
+            <div class="log-panel">
+              <div class="log-header">
+                <p class="section-kicker">Bitacora</p>
+                <h3>Mensajes recientes</h3>
+              </div>
+              <div class="log-feed" id="log-feed" aria-live="polite">
+                <p class="log-empty">Todavia no hay eventos.</p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="right-column">
+          <article class="panel results-panel">
+            <div class="panel-header results-header">
+              <div>
+                <p class="section-kicker">Resultados</p>
+                <h2>Salida ordenada y facil de leer</h2>
+              </div>
+              <div class="summary-chip" id="summary-chip">Sin ejecucion</div>
+            </div>
+
+            <div class="summary-card is-empty" id="summary-card">
+              <p class="summary-overline">Resumen ejecutivo</p>
+              <h3>Los resultados apareceran aqui</h3>
+              <p>
+                La vista final separa investigacion, mercado, finanzas, riesgos,
+                memo y artefactos generados.
+              </p>
+            </div>
+
+            <div class="results-stack" id="results-stack"></div>
+
+            <section class="artifact-section">
+              <div class="subsection-header">
+                <p class="section-kicker">Artefactos</p>
+                <h3>Archivos generados</h3>
+              </div>
+              <div class="artifact-grid" id="artifact-grid">
+                <p class="artifact-empty">Aun no hay artefactos generados.</p>
+              </div>
+            </section>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "product-name"
+version = "0.1.0"
+description = "An AaaS product powered by Google ADK agents."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "aiosmtplib>=3.0",
+  "cloud-sql-python-connector[pg8000]>=1.18.5",
+  "fastapi>=0.135.0",
+  "google-adk>=1.16.0",
+  "google-auth>=2.39.0",
+  "google-cloud-storage>=3.3.0",
+  "google-genai>=1.40.0",
+  "matplotlib>=3.9.0",
+  "pg8000>=1.31.2",
+  "python-dotenv>=1.0.1",
+  "requests>=2.32.0",
+  "reportlab>=4.4.0",
+  "SQLAlchemy>=2.0.39",
+  "stripe>=8.0.0",
+  "sse-starlette>=3.0.0",
+  "uvicorn>=0.41.0",
+  "aiohttp>=3.9",
+  "httpx>=0.27.0",
+  "Pillow>=10.0.0",
+  "PyGithub>=2.3.0",
+  "Jinja2>=3.1.0",
+]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.0"]
+
+[project.scripts]
+product-name = "product_app.runner:main"
+product-name-init-db = "product_app.ops:init_database_main"
+product-name-web = "product_app.webapp:main"
+
+[tool.setuptools.packages.find]
+include = ["product_app*"]

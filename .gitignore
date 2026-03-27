@@ -1,0 +1,17 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+*.db
+mcp/bin/toolbox.exe
+mcp/gcloud-server/node_modules/
+mcp/gcloud-server/package-lock.json
+mcp/stripe-server/node_modules/
+mcp/stripe-server/package-lock.json
+mvp_factory/outputs/*
+!mvp_factory/outputs/.gitkeep

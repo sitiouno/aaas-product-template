@@ -1,0 +1,9 @@
+{
+  "name": "quien-gcloud-mcp",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local installation of the Google Cloud MCP server for this workspace.",
+  "dependencies": {
+    "@google-cloud/gcloud-mcp": "^0.5.3"
+  }
+}
