@@ -1,0 +1,73 @@
+/* ========================================================================
+   THEME — CSS variables, colors, typography scale
+   ======================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* MVP Factory Dark Developer Theme */
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-card: rgba(30, 41, 59, 0.85);
+  --bg-card-hover: rgba(30, 41, 59, 0.95);
+  --border-subtle: rgba(51, 65, 85, 0.6);
+  --border-accent: rgba(37, 99, 235, 0.35);
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+
+  --accent-cyan: #06B6D4;
+  --accent-purple: #2563EB;
+  --accent-gradient: linear-gradient(135deg, #2563EB, #06B6D4);
+  --accent-green: #34d399;
+  --accent-red: #f87171;
+  --accent-amber: #fbbf24;
+
+  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", Menlo, Consolas, monospace;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Legacy aliases for compatibility */
+  --paper: var(--bg-primary);
+  --paper-strong: var(--bg-secondary);
+  --panel: var(--bg-card);
+  --panel-strong: var(--bg-secondary);
+  --line: var(--border-subtle);
+  --ink: var(--text-primary);
+  --muted: var(--text-secondary);
+  --blue: var(--accent-purple);
+  --blue-deep: var(--accent-purple);
+  --blue-light: rgba(37, 99, 235, 0.08);
+  --green: var(--accent-green);
+  --green-light: rgba(52, 211, 153, 0.10);
+  --amber: var(--accent-amber);
+  --amber-light: rgba(251, 191, 36, 0.10);
+  --red: var(--accent-red);
+  --red-light: rgba(248, 113, 113, 0.08);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.3), 0 24px 48px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --radius-xl: 20px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  /* Spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+
+  /* Workspace */
+  --ws-sidebar: #0B1120;
+  --ws-sidebar-hover: #1E293B;
+  --ws-sidebar-active: rgba(37, 99, 235, 0.2);
+  --ws-sidebar-text: #94A3B8;
+  --ws-sidebar-text-active: #F8FAFC;
+  --ws-bg: #0F172A;
+  --ws-surface: #1E293B;
+  --ws-border: rgba(51, 65, 85, 0.6);
+  --ws-border-hover: rgba(37, 99, 235, 0.4);
+}

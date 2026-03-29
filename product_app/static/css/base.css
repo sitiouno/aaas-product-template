@@ -1,0 +1,208 @@
+/* ========================================================================
+   BASE — Reset, base element styles, utility classes
+   ======================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-primary);
+}
+
+body.ctx-marketing {
+  background: var(--bg-primary);
+}
+
+body.ctx-workspace {
+  background: var(--ws-bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--ws-border);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+/* ---- Utility: cursor pointer on all interactive elements ---- */
+button, .ghost-button, .primary-button, [role="button"],
+a[href], .workspace-nav a, .admin-tab, .style-card,
+.btn-approve, .btn-reject, .btn-grant, .btn-sm { cursor: pointer; }
+
+/* ---- Utility: hide on mobile ---- */
+.hide-mobile { }
+
+/* ---- Pill ---- */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(6, 182, 212, 0.06);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.pill.pill-green {
+  background: var(--green-light);
+  color: var(--accent-green);
+}
+
+.pill.pill-blue {
+  background: var(--blue-light);
+  color: var(--accent-cyan);
+}
+
+.pill.pill-amber {
+  background: var(--amber-light);
+  color: var(--accent-amber);
+}
+
+.pill.pill-red {
+  background: var(--red-light);
+  color: var(--accent-red);
+}
+
+.pill-sm {
+  font-size: 0.65rem;
+  padding: 1px 6px;
+}
+
+.pill-red { background: rgba(239,68,68,.15); color: #f87171; }
+
+/* ---- Typography helpers ---- */
+
+.eyebrow {
+  margin: 0 0 6px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+}
+
+.muted-copy,
+.hero-text,
+.stage-copy p,
+.log-item p,
+.article-panel p,
+.pricing-card p,
+.example-card p,
+.result-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ---- Progress meter ---- */
+
+.progress-meter {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(6, 182, 212, 0.06);
+  margin: 12px 0;
+}
+
+.progress-meter > div {
+  width: 0;
+  height: 100%;
+  background: var(--accent-gradient);
+  transition: width 260ms ease;
+  border-radius: 999px;
+}
+
+/* ---- Action feedback ---- */
+
+.action-feedback {
+  margin: 10px 0 0;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.action-feedback[data-tone="info"] {
+  border-color: rgba(6, 182, 212, 0.2);
+  background: rgba(6, 182, 212, 0.06);
+}
+
+.action-feedback[data-tone="success"] {
+  border-color: rgba(52, 211, 153, 0.2);
+  background: rgba(52, 211, 153, 0.06);
+}
+
+.action-feedback[data-tone="error"] {
+  border-color: rgba(248, 113, 113, 0.2);
+  background: rgba(248, 113, 113, 0.06);
+}
+
+/* ---- Empty state ---- */
+
+.empty-state {
+  background: var(--bg-secondary);
+  border: 1px solid var(--ws-border);
+  border-radius: 6px;
+  padding: 2rem;
+  text-align: center;
+}
+.empty-state p { color: var(--text-muted); margin: 0; }
+
+/* ---- Toggle switch ---- */
+
+.toggle-switch { position: relative; display: inline-block; width: 40px; height: 22px; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-slider {
+  position: absolute; cursor: pointer; inset: 0;
+  background: #334155; border-radius: 22px; transition: 0.2s;
+}
+.toggle-slider::before {
+  content: ""; position: absolute; height: 16px; width: 16px;
+  left: 3px; bottom: 3px; background: #888; border-radius: 50%; transition: 0.2s;
+}
+.toggle-switch input:checked + .toggle-slider { background: rgba(6, 182, 212, 0.3); }
+.toggle-switch input:checked + .toggle-slider::before { transform: translateX(18px); background: #06B6D4; }
