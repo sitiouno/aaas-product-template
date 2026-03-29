@@ -15,3 +15,4 @@ mcp/stripe-server/node_modules/
 mcp/stripe-server/package-lock.json
 mvp_factory/outputs/*
 !mvp_factory/outputs/.gitkeep
+.superpowers/

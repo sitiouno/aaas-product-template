@@ -1,0 +1,59 @@
+# AaaS Product Template — Cursor Rules
+
+## Architecture
+- Maximum 600 lines per file. Split by responsibility if approaching limit.
+- One file = one purpose. No monolithic modules.
+- Follow the modular structure defined in CLAUDE.md.
+
+## JavaScript
+- ES modules with explicit imports/exports
+- No global state mutations — use the module pattern
+- Event delegation over individual listeners
+- Async/await for all API calls
+- Descriptive function names: `loadDashboardStats()` not `load()`
+- Max 30 lines per function
+
+## CSS
+- Use CSS custom properties from theme.css (never hardcode colors)
+- BEM-like naming: `.section-card`, `.section-card-header`
+- Mobile-first responsive design
+- No `!important` unless overriding third-party styles
+
+## Python
+- Type hints on all function signatures
+- Dataclasses over plain dicts for structured data
+- Context managers for database sessions (`with session_scope()`)
+- FastAPI dependency injection for auth/config
+- No bare `except:` — always specify exception type
+
+## Security
+- Validate user input at API boundaries
+- Parameterized queries only (SQLAlchemy ORM)
+- Sanitize HTML output (XSS prevention)
+- Never expose secrets client-side
+- API keys: prefix display only, hash storage
+
+## Testing
+- Run `pytest tests/ -v` before commits
+- Test behavior, not implementation details
+- New features require tests; bug fixes require regression tests
+
+## Protected Files
+These files have readonly protection — do not modify without explicit unlock:
+- `product_app/security.py` — Authentication system
+- `product_app/models.py` — Database schema
+- `product_app/stripe_billing.py` — Billing integration
+- `product_app/database.py` — Database connection
+
+## Agent Development
+- Subclass `ResearchStyleBase` in `product_app/research/`
+- Implement: `build_pipeline()`, `get_stages()`, `get_section_titles()`
+- End file with `STYLE = MyStyle()` for auto-discovery
+- Use `SequentialAgent` or `ParallelAgent` from ADK for pipelines
+
+## Vibe Coding Tips
+- Start with the Getting Started guide in the workspace
+- Focus on frontend (landing, chat UI, components) — agents are backend
+- Each section is its own JS module — edit one at a time
+- Check How It Works for agent pipeline diagrams
+- Use placeholder components as starting points

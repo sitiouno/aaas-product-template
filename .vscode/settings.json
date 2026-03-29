@@ -1,0 +1,44 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.rulers": [100],
+  "editor.wordWrap": "off",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.tabSize": 4
+  },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[css]": {
+    "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.tabSize": 2
+  },
+
+  "python.analysis.typeCheckingMode": "basic",
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["tests/", "-v"],
+
+  "css.validate": true,
+  "css.lint.duplicateProperties": "warning",
+  "css.lint.emptyRules": "warning",
+
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    ".superpowers": true
+  },
+
+  "search.exclude": {
+    "**/__pycache__": true,
+    "**/node_modules": true,
+    ".superpowers": true
+  }
+}
