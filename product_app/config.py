@@ -122,6 +122,11 @@ class Settings:
     stripe_credit_price_id: str
     stripe_credit_price_id_test: str
     stripe_credit_price_id_live: str
+    # Product identity
+    product_name: str = "My Product"
+    product_description: str = ""
+    product_domain: str = ""
+    unlock_protected: bool = False
 
 
 def load_settings() -> Settings:
@@ -268,6 +273,10 @@ def load_settings() -> Settings:
         stripe_credit_price_id=os.getenv("STRIPE_CREDIT_PRICE_ID", ""),
         stripe_credit_price_id_test=os.getenv("STRIPE_CREDIT_PRICE_ID_TEST", ""),
         stripe_credit_price_id_live=os.getenv("STRIPE_CREDIT_PRICE_ID_LIVE", ""),
+        product_name=os.getenv("PRODUCT_NAME", "My Product"),
+        product_description=os.getenv("PRODUCT_DESCRIPTION", ""),
+        product_domain=os.getenv("PRODUCT_DOMAIN", ""),
+        unlock_protected=_as_bool(os.getenv("UNLOCK_PROTECTED"), default=False),
     )
 
 
