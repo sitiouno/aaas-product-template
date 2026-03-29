@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 import json
-import os
-import time
 from html import escape
 from typing import Any
 
@@ -111,7 +109,6 @@ def render_workspace_html(
         from .config import load_settings
         settings = load_settings()
 
-    asset_version = os.getenv("K_REVISION", str(int(time.time())))
     base_url = settings.public_base_url
     account_payload = user_summary or {"authenticated": False, "api_keys": []}
 

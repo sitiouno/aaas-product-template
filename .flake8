@@ -1,0 +1,9 @@
+[flake8]
+max-line-length = 120
+# HTML template f-strings in renderer files routinely contain long inline SVG,
+# bilingual text, and attribute strings that cannot be split without breaking
+# the HTML output. E501 is suppressed for these files only.
+per-file-ignores =
+    product_app/renderer_components.py: E501
+    product_app/renderer_landing.py: E501
+    product_app/renderer_workspace.py: E501
