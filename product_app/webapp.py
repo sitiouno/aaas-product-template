@@ -656,10 +656,14 @@ app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 def custom_openapi():
     if app.openapi_schema:
         return app.openapi_schema
+    product_name = settings.website_name or "Product"
     openapi_schema = get_openapi(
-        title="Product Name API",
+        title=f"{product_name} API",
         version="1.0.0",
-        description="Private API for Sitio Uno Inc. - API keys are required.",
+        description=(
+            f"{product_name} REST API. Authenticate with your API key "
+            f"via the X-API-Key header. Visit the app to generate keys."
+        ),
         routes=app.routes,
     )
     if "components" not in openapi_schema:
@@ -856,7 +860,8 @@ async def request_magic_link(request: Request):
             }, 400)
 
     settings_now = load_settings()
-    if not settings_now.smtp_host:
+    from .email_sender import email_available
+    if not email_available(settings_now):
         return JSONResponse({"error": "Email service is not configured. Contact support."}, 503)
 
     # Generate OTP and send via email

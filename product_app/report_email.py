@@ -19,13 +19,13 @@ async def send_report_ready_email(
     settings,
 ) -> None:
     """Send a branded email notifying the user their report is ready."""
-    import aiosmtplib
-    from email.message import EmailMessage
+    from .email_sender import email_available, send_email
 
-    if not settings.smtp_host or not settings.smtp_user:
-        logger.warning("SMTP not configured, skipping report notification for %s", email)
+    if not email_available(settings):
+        logger.warning("Email not configured, skipping report notification for %s", email)
         return
 
+    product_name = getattr(settings, "website_name", "") or "Product"
     report_url = f"{base_url}/{language}/app#report-viewer/{job_id}"
     greeting = full_name or email.split("@")[0]
 
@@ -50,7 +50,7 @@ async def send_report_ready_email(
 
     html = f"""\
 <div style="font-family:Inter,system-ui,sans-serif;max-width:520px;margin:0 auto;padding:32px;background:#0a0a12;color:#e0e0e0;border-radius:12px;">
-  <h2 style="color:#38bdf8;margin:0 0 8px;">Product Name</h2>
+  <h2 style="color:#38bdf8;margin:0 0 8px;">{product_name}</h2>
   <p style="margin:0 0 24px;color:#8b92a8;font-size:14px;">{heading}</p>
   <div style="background:#12121e;border:1px solid #1e1e3a;border-radius:8px;padding:20px;margin-bottom:20px;">
     <p style="color:#ffffff;font-size:16px;margin:0 0 8px;font-weight:600;">{report_title}</p>
@@ -63,20 +63,12 @@ async def send_report_ready_email(
 
     plain = f"{heading}\n\n{body_text}\n{credits_label}\n\n{cta_text}: {report_url}"
 
-    msg = EmailMessage()
-    from_email = settings.magic_link_from_email or settings.smtp_user
-    msg["From"] = f"Product Name <{from_email}>"
-    msg["To"] = email
-    msg["Subject"] = subject
-    msg.set_content(plain)
-    msg.add_alternative(html, subtype="html")
-
-    await aiosmtplib.send(
-        msg,
-        hostname=settings.smtp_host,
-        port=settings.smtp_port,
-        username=settings.smtp_user or None,
-        password=settings.smtp_password or None,
-        start_tls=True,
+    await send_email(
+        to=email,
+        subject=subject,
+        html_body=html,
+        text_body=plain,
+        from_name=product_name,
+        settings=settings,
     )
     logger.info("Report notification sent to %s for job %s", email, job_id)

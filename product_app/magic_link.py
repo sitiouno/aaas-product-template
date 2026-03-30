@@ -73,26 +73,19 @@ def verify_registration_token(token: str, secret: str) -> str | None:
 
 
 async def send_magic_link_email(email: str, magic_url: str, is_new_user: bool, settings):
-    """Send branded magic link email via SMTP."""
+    """Send branded magic link email."""
     from .email_templates import render_magic_link_email
-    import aiosmtplib
-    from email.message import EmailMessage
+    from .email_sender import send_email
 
-    subject = "Welcome to Product Name" if is_new_user else "Sign in to Product Name"
+    product_name = getattr(settings, "website_name", "") or "Product"
+    subject = f"Welcome to {product_name}" if is_new_user else f"Sign in to {product_name}"
     html_body = render_magic_link_email(email, magic_url, is_new_user)
 
-    msg = EmailMessage()
-    msg["From"] = settings.magic_link_from_email
-    msg["To"] = email
-    msg["Subject"] = subject
-    msg.set_content("Open this link to sign in: " + magic_url)
-    msg.add_alternative(html_body, subtype="html")
-
-    await aiosmtplib.send(
-        msg,
-        hostname=settings.smtp_host,
-        port=settings.smtp_port,
-        username=settings.smtp_user or None,
-        password=settings.smtp_password or None,
-        start_tls=True,
+    await send_email(
+        to=email,
+        subject=subject,
+        html_body=html_body,
+        text_body="Open this link to sign in: " + magic_url,
+        from_name=product_name,
+        settings=settings,
     )

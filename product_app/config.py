@@ -95,6 +95,9 @@ class Settings:
     smtp_user: str
     smtp_password: str
     magic_link_from_email: str
+    # Factory email relay (used when local SMTP is not configured)
+    factory_email_api_url: str
+    factory_email_api_key: str
     # Webhook
     webhook_signing_secret: str
     webhook_retry_max: int
@@ -233,6 +236,8 @@ def load_settings() -> Settings:
         magic_link_from_email=os.getenv(
             "MAGIC_LINK_FROM_EMAIL", "noreply@PRODUCT_DOMAIN"
         ),
+        factory_email_api_url=os.getenv("FACTORY_EMAIL_API_URL", ""),
+        factory_email_api_key=os.getenv("FACTORY_EMAIL_API_KEY", ""),
         webhook_signing_secret=os.getenv("WEBHOOK_SIGNING_SECRET", ""),
         webhook_retry_max=max(int(os.getenv("WEBHOOK_RETRY_MAX", "3")), 1),
         admin_email=os.getenv(
