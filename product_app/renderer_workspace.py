@@ -149,7 +149,7 @@ def render_workspace_html(
     <script src="https://cdn.jsdelivr.net/npm/cytoscape-cose-bilkent@4.1.0/cytoscape-cose-bilkent.js"></script>
     <script>window.__QUIEN_PAGE__ = {page_state};</script>
     <script>window.__QUIEN_ACCOUNT__ = {json.dumps(account_payload, ensure_ascii=True)};</script>
-    <script type="module" src="/static/js/app.js"></script>
+    <script type="module" src="/static/app.js"></script>
   </head>
   <body class="ctx-workspace">
     <div class="workspace-shell">
