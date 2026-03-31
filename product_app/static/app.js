@@ -15,15 +15,15 @@ const SECTIONS = isAdmin ? OWNER_SECTIONS : USER_SECTIONS;
 
 /* ── Module loader map ──────────────────────────────────────────── */
 const MODULE_MAP = {
-  "dashboard":       () => import("./dashboard.js"),
-  "getting-started": () => import("./getting-started.js"),
-  "how-it-works":    () => import("./how-it-works.js"),
+  "dashboard":       () => import("./js/dashboard.js"),
+  "getting-started": () => import("./js/getting-started.js"),
+  "how-it-works":    () => import("./js/how-it-works.js"),
   "agent-factory":   null,   // coming soon — rendered inline
-  "components":      () => import("./getting-started.js"),
-  "api":             () => import("./api-section.js"),
-  "account":         () => import("./account.js"),
-  "billing":         () => import("./billing.js"),
-  "admin":           () => import("./admin.js"),
+  "components":      () => import("./js/getting-started.js"),
+  "api":             () => import("./js/api-section.js"),
+  "account":         () => import("./js/account.js"),
+  "billing":         () => import("./js/billing.js"),
+  "admin":           () => import("./js/admin.js"),
 };
 
 /* ── Module cache ───────────────────────────────────────────────── */

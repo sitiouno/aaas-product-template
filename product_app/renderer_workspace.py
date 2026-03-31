@@ -22,37 +22,37 @@ def _css_includes() -> str:
 def _owner_sidebar_nav(language: str) -> str:
     return f"""
           <nav class="workspace-nav">
-            <a href="#dashboard" data-section="dashboard" data-view="workspace-dashboard" class="is-active">
+            <a href="#dashboard" data-section="dashboard" class="ws-nav-item is-active">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
               {escape(_t(language, 'Dashboard', 'Panel'))}
             </a>
-            <a href="#getting-started" data-section="getting-started" data-view="workspace-getting-started">
+            <a href="#getting-started" data-section="getting-started" class="ws-nav-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
               {escape(_t(language, 'Getting Started', 'Comenzar'))}
             </a>
-            <a href="#how-it-works" data-section="how-it-works" data-view="workspace-how-it-works">
+            <a href="#how-it-works" data-section="how-it-works" class="ws-nav-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
               {escape(_t(language, 'How It Works', 'Como Funciona'))}
             </a>
-            <a href="#agent-factory" data-section="agent-factory" data-view="workspace-agent-factory" class="nav-disabled" aria-disabled="true" tabindex="-1">
+            <a href="#agent-factory" data-section="agent-factory" class="ws-nav-item nav-disabled" aria-disabled="true" tabindex="-1">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
               {escape(_t(language, 'Agent Factory', 'Fabrica de Agentes'))}
               <span class="nav-badge-soon">{escape(_t(language, 'Soon', 'Pronto'))}</span>
             </a>
             <div class="nav-separator"></div>
-            <a href="#api" data-section="api" data-view="workspace-api">
+            <a href="#api" data-section="api" class="ws-nav-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               {escape(_t(language, 'API & MCP', 'API y MCP'))}
             </a>
-            <a href="#account" data-section="account" data-view="workspace-account">
+            <a href="#account" data-section="account" class="ws-nav-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               {escape(_t(language, 'My Account', 'Mi Cuenta'))}
             </a>
-            <a href="#billing" data-section="billing" data-view="workspace-billing">
+            <a href="#billing" data-section="billing" class="ws-nav-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
               {escape(_t(language, 'Billing', 'Facturacion'))}
             </a>
-            <a href="#admin" data-section="admin" data-view="workspace-admin" id="nav-admin">
+            <a href="#admin" data-section="admin" class="ws-nav-item" id="nav-admin">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               {escape(_t(language, 'Admin', 'Admin'))}
             </a>
@@ -62,24 +62,24 @@ def _owner_sidebar_nav(language: str) -> str:
 def _user_sidebar_nav(language: str) -> str:
     return f"""
           <nav class="workspace-nav">
-            <a href="#dashboard" data-section="dashboard" data-view="workspace-dashboard" class="is-active">
+            <a href="#dashboard" data-section="dashboard" class="ws-nav-item is-active">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
               {escape(_t(language, 'Dashboard', 'Panel'))}
             </a>
-            <a href="#components" data-section="components" data-view="workspace-components">
+            <a href="#components" data-section="components" class="ws-nav-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
               {escape(_t(language, 'Components', 'Componentes'))}
             </a>
             <div class="nav-separator"></div>
-            <a href="#api" data-section="api" data-view="workspace-api">
+            <a href="#api" data-section="api" class="ws-nav-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               {escape(_t(language, 'API & MCP', 'API y MCP'))}
             </a>
-            <a href="#account" data-section="account" data-view="workspace-account">
+            <a href="#account" data-section="account" class="ws-nav-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               {escape(_t(language, 'My Account', 'Mi Cuenta'))}
             </a>
-            <a href="#billing" data-section="billing" data-view="workspace-billing">
+            <a href="#billing" data-section="billing" class="ws-nav-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
               {escape(_t(language, 'Billing', 'Facturacion'))}
             </a>
@@ -88,15 +88,15 @@ def _user_sidebar_nav(language: str) -> str:
 
 def _section_containers() -> str:
     return """
-<section id="workspace-dashboard" class="workspace-section" style="display:none"></section>
-<section id="workspace-getting-started" class="workspace-section" style="display:none"></section>
-<section id="workspace-how-it-works" class="workspace-section" style="display:none"></section>
-<section id="workspace-agent-factory" class="workspace-section" style="display:none"></section>
-<section id="workspace-components" class="workspace-section" style="display:none"></section>
-<section id="workspace-api" class="workspace-section" style="display:none"></section>
-<section id="workspace-account" class="workspace-section" style="display:none"></section>
-<section id="workspace-billing" class="workspace-section" style="display:none"></section>
-<section id="workspace-admin" class="workspace-section" style="display:none"></section>"""
+<section id="ws-section-dashboard" class="workspace-section" hidden></section>
+<section id="ws-section-getting-started" class="workspace-section" hidden></section>
+<section id="ws-section-how-it-works" class="workspace-section" hidden></section>
+<section id="ws-section-agent-factory" class="workspace-section" hidden></section>
+<section id="ws-section-components" class="workspace-section" hidden></section>
+<section id="ws-section-api" class="workspace-section" hidden></section>
+<section id="ws-section-account" class="workspace-section" hidden></section>
+<section id="ws-section-billing" class="workspace-section" hidden></section>
+<section id="ws-section-admin" class="workspace-section" hidden></section>"""
 
 
 def render_workspace_html(
